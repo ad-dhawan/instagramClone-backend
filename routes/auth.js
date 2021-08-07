@@ -31,9 +31,9 @@ router.post("/register", async (req,res) => {
 
         //Save User
         const user = await newUser.save();
-        res.status(200).json({status: 200, message: "User registered Successfully", id: newUser._id, username: newUser.username, email: newUser.email});
+        res.status(200).json({status: 200, message: "User registered Successfully", id: user._id, username: user.username, email: user.email});
     }catch (err) {
-        res.status(500).json({status: 500, message: err})
+        res.status(500).json({status: 500, message: "Internal Server Error"})
     }
 });
 
@@ -51,7 +51,7 @@ router.post("/login", async (req, res) => {
 
         res.status(200).json({status: 200, message: "Logged In", username: user.username, email: user.email, id: user._id, profilePicture: user.profilePicture, following: user.following, followers: user.followers})
     }catch (err){
-        res.status(500).json({status: 500, message: err})
+        res.status(500).json({status: 500, message: "Internal Server Error"})
     }
 });
 

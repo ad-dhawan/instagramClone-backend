@@ -6,6 +6,7 @@ const helmet = require('helmet')
 const morgan = require('morgan')
 
 const authRoute = require('./routes/auth')
+const userRoute = require('./routes/users')
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ app.use(morgan("common"));
 
 //Routes Middleware
 app.use('/api/auth', authRoute);
+app.use('/api/user', userRoute);
 
 app.listen(8000, () => {
     console.log("Instagram Clone Backend Running at port 8000");
