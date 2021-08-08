@@ -43,7 +43,7 @@ router.post("/login", async (req, res) => {
         const {error} = loginValidation(req.body);
         if(error) return res.status(400).json({status: 400, message: error.details[0].message});
 
-        const user = await User.findOne({email: req.body.email});
+        const user = await User.findOne({username: req.body.username});
         !user && res.status(404).json({status: 404, message: "User not found"});
 
         const validPassword = await bcrypt.compare(req.body.password, user.password)
