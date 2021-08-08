@@ -4,6 +4,9 @@ const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const helmet = require('helmet')
 const morgan = require('morgan')
+const bodyParser = require('body-parser')
+var multer = require('multer');
+var upload = multer();
 
 const authRoute = require('./routes/auth')
 const userRoute = require('./routes/users')
@@ -23,6 +26,8 @@ mongoose.connect(
 app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
+app.use(upload.array()); 
+app.use(express.static('public'));
 
 //Routes Middleware
 app.use('/api/auth', authRoute);
