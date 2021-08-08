@@ -56,3 +56,41 @@ Node JS Rest APIs for Instagram Application
 * StatusCode: 200 => User unfollowed
 * StatusCode:: 403 => Doesn't Follow
 * StatusCode: 500 => Server Error
+
+#### `http://URL/api/post/`
+### Method : POST
+### Raw Data
+* userId => String
+* caption => String
+* image => String
+### Response Codes
+* StatusCode: 200 => Posted
+* StatusCode: 500 => Server Error
+
+#### `http://URL/api/post/delete/:id`
+### Method : DELETE
+### Raw Data
+* userId => String
+### Params
+* postId
+### Response Codes
+* StatusCode: 200 => Post Deleted
+* StatusCode: 403 => Can't Delete other user's post
+* StatusCode: 500 => Server Error
+
+#### `http://URL/api/post/like/:id`
+### Method : PUT
+### Raw Data
+* userId => String
+### Params
+* postId
+### Response Codes
+* StatusCode: 200 => Liked/Disliked
+* StatusCode: 500 => Server Error
+
+#### `http://URL/api/post/allPosts/`
+### Method : GET
+### Raw Data
+* userId => String
+### Response Codes
+* StatusCode: 500 => Server Error
